@@ -51,7 +51,7 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
 
           <p>{item.address}</p>
 
-          <h2>{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</h2>
+          <h2>{ethers.utils.formatUnits(item.cost.toString(), 'ether')} FSC</h2>
 
           <hr />
 
@@ -67,7 +67,7 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
         </div>
 
         <div className="product__order">
-          <h1>{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</h1>
+          <h1>{ethers.utils.formatUnits(item.cost.toString(), 'ether')} FSC</h1>
 
           <p>
             FREE delivery <br />
@@ -86,8 +86,8 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
             Buy Now
           </button>
 
-          <p><small>Ships from</small> Dappazon</p>
-          <p><small>Sold by</small> Dappazon</p>
+          <p><small>Ships from</small> Flipkart</p>
+          <p><small>Sold by</small> Flipkart</p>
 
           {order && (
             <div className='product__bought'>

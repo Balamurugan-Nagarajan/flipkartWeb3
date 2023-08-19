@@ -44,7 +44,6 @@ contract Dappazon {
         uint256 _rating,
         uint256 _stock
     ) public onlyOwner {
-        // Create Item
         Item memory item = Item(
             _id,
             _name,
@@ -55,34 +54,34 @@ contract Dappazon {
             _stock
         );
 
-        // Add Item to mapping
+
         items[_id] = item;
 
-        // Emit event
+
         emit List(_name, _cost, _stock);
     }
 
     function buy(uint256 _id) public payable {
-        // Fetch item
+
         Item memory item = items[_id];
 
-        // Require enough ether to buy item
+
         require(msg.value >= item.cost);
 
-        // Require item is in stock
+
         require(item.stock > 0);
 
-        // Create order
+  
         Order memory order = Order(block.timestamp, item);
 
-        // Add order for user
-        orderCount[msg.sender]++; // <-- Order ID
+    
+        orderCount[msg.sender]++; 
         orders[msg.sender][orderCount[msg.sender]] = order;
 
-        // Subtract stock
+
         items[_id].stock = item.stock - 1;
 
-        // Emit event
+ 
         emit Buy(msg.sender, orderCount[msg.sender], item.id);
     }
 
